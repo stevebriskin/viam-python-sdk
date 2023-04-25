@@ -27,28 +27,28 @@ class MovementSensor(Sensor):
     async def get_position(
         self, *, extra: Optional[Dict[str, Any]] = None, timeout: Optional[float] = None, **kwargs
     ) -> Tuple[GeoPoint, float]:
-        """Get the current GeoPoint (latitude, longitude) and altitude (mm)
+        """Get the current GeoPoint (latitude, longitude) and altitude (m)
 
         Returns:
-            Tuple[GeoPoint, float]: The current lat/long, along with the altitude in mm
+            Tuple[GeoPoint, float]: The current lat/long, along with the altitude in m
         """
         ...
 
     @abc.abstractmethod
     async def get_linear_velocity(self, *, extra: Optional[Dict[str, Any]] = None, timeout: Optional[float] = None, **kwargs) -> Vector3:
-        """Get the current linear velocity as a ``Vector3`` with x, y, and z axes represented in mm/sec
+        """Get the current linear velocity as a ``Vector3`` with x, y, and z axes represented in m/sec
 
         Returns:
-            Vector3: The linear velocity in mm/sec
+            Vector3: The linear velocity in m/sec
         """
         ...
 
     @abc.abstractmethod
     async def get_angular_velocity(self, *, extra: Optional[Dict[str, Any]] = None, timeout: Optional[float] = None, **kwargs) -> Vector3:
-        """Get the current angular velocity as a ``Vector3`` with x, y, and z axes represented in radians/sec
+        """Get the current angular velocity as a ``Vector3`` with x, y, and z axes represented in degrees/sec
 
         Returns:
-            Vector3: The angular velocity in rad/sec
+            Vector3: The angular velocity in degrees/sec
         """
         ...
 
@@ -56,10 +56,10 @@ class MovementSensor(Sensor):
     async def get_linear_acceleration(
         self, *, extra: Optional[Dict[str, Any]] = None, timeout: Optional[float] = None, **kwargs
     ) -> Vector3:
-        """Get the current linear acceleration as a ``Vector3`` with x, y, and z axes represented in mm/sec^2
+        """Get the current linear acceleration as a ``Vector3`` with x, y, and z axes represented in m/sec^2
 
         Returns:
-            Vector3: The linear acceleration in mm/sec^2
+            Vector3: The linear acceleration in m/sec^2
         """
         ...
 
@@ -97,7 +97,7 @@ class MovementSensor(Sensor):
         """Get the accuracy of the various sensors
 
         Returns:
-            Dict[str, float]: The accuracy in mm
+            Dict[str, float]: The accuracy
         """
         ...
 
